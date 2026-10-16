@@ -1,0 +1,18 @@
+# KPI's
+
+1,Total Revenue.
+2,Total Items Sold.
+3,Average Price per Item.
+4,Active Restaurant Count.
+5,City Coverage.
+6,State Coverage .
+7,Revenue: Veg vs Non-Veg.
+8,Top City by Revenue.
+9,Overall Average Rating.
+10,Top Rated Restaurant.
+11,Most Popular Category.
+12,Most Expensive State.
+13,Total Feedback Volume.
+14,Veg Dish Percentage.
+15,Peak Revenue Month.
+

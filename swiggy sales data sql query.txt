@@ -1,0 +1,91 @@
+select * from swiggy_data;
+
+1. Total Revenue
+
+SELECT SUM("Price") AS Total_Revenue 
+FROM swiggy_data;
+
+2. Total Items Sold
+
+SELECT COUNT(*) AS Total_Items_Sold 
+FROM swiggy_data;
+
+3. Average Price per Item
+
+SELECT AVG("Price") AS Avg_Price 
+FROM swiggy_data;
+
+4. Total Unique Restaurants
+
+SELECT COUNT(DISTINCT "Restaurant_Name") AS Active_Restaurants 
+FROM swiggy_data;
+
+5. Total Cities Covered
+
+SELECT COUNT(DISTINCT City) AS Total_Cities 
+FROM swiggy_data;
+
+6. Revenue Distribution by Food Type
+
+SELECT "Food_Type", SUM("Price") AS Revenue 
+FROM swiggy_data 
+GROUP BY "Food_Type";
+
+7. Top 5 Cities by Revenue
+
+SELECT TOP 5 City, SUM(Price) AS Revenue 
+FROM swiggy_data 
+GROUP BY City 
+ORDER BY Revenue DESC;
+
+8. Average Customer Rating
+
+SELECT AVG(Rating) AS Average_Platform_Rating 
+FROM swiggy_data;
+
+9. Top 5 Best-Rated Restaurants
+
+SELECT TOP 5 Restaurant_Name, AVG(Rating) AS Avg_Rating 
+FROM swiggy_data 
+GROUP BY Restaurant_Name 
+ORDER BY Avg_Rating DESC;
+
+10. Top 5 Most Popular Categories
+
+SELECT TOP 5 Category, COUNT(*) AS Order_Count 
+FROM swiggy_data 
+GROUP BY Category 
+ORDER BY Order_Count DESC;
+
+11. Average Dish Price by State
+
+SELECT State, AVG(Price) AS Avg_Price 
+FROM swiggy_data 
+GROUP BY State 
+ORDER BY Avg_Price DESC;
+
+12. Total Rating Count 
+
+SELECT SUM(Rating_Count) AS Total_Reviews 
+FROM swiggy_data;
+
+13. Percentage of Veg vs Non-Veg Items
+
+SELECT Food_Type, 
+       (COUNT(*) * 100.0 / (SELECT COUNT(*) FROM swiggy_data)) AS Percentage 
+FROM swiggy_data 
+GROUP BY Food_Type;
+
+14. Monthly Revenue Trend 
+
+SELECT FORMAT([Order_Date], 'yyyy-MM') AS Month, 
+       SUM(Price) AS Monthly_Revenue 
+FROM swiggy_data 
+GROUP BY FORMAT([Order_Date], 'yyyy-MM') 
+ORDER BY Month;
+
+15. Top 5 Most Expensive Dishes 
+
+SELECT TOP 5 Dish_Name,State,City, Restaurant_Name, Price 
+FROM swiggy_data 
+ORDER BY Price DESC;
